@@ -24,14 +24,23 @@ img{max-width:100%;display:block}
 .phone-text .phone-number{margin:4px 0 0 0;font-weight:900;font-size:30px}
 .phone-text .phone-number a{text-decoration:none;color:#003366}
 
-/* ===== Hero ===== */
-.hero{background:linear-gradient(135deg,var(--green),var(--green-2));color:#fff;padding:28px 0 18px}
-.hero__inner{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.title{margin:0 0 6px 0;font-size:clamp(26px,4.5vw,44px);font-weight:800;letter-spacing:.2px}
-.subtitle{margin:0 0 16px 0;opacity:.9}
-.hero__logos{display:flex;gap:18px}
-.utility-logo{height:120px;width:auto;background:#fff;border-radius:14px;padding:10px 16px;box-shadow:0 8px 20px rgba(0,0,0,.12)}
+/* ===== Hero (photo background) ===== */
+.hero{
+  position: relative;
+  color: #fff;
+  padding: 80px 0 60px;
 
+  background-image:
+    linear-gradient(
+      rgba(0,0,0,.45),
+      rgba(0,0,0,.55)
+    ),
+    url("./IMG_0713.jpeg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 /* ===== Cards ===== */
 .card{background:var(--card);border-radius:14px;padding:16px 16px 10px;box-shadow:0 8px 28px rgba(0,0,0,.10);margin-top:18px}
 .card-lite{background:#fff;border-radius:14px;padding:16px;box-shadow:0 6px 16px rgba(0,0,0,.06)}
