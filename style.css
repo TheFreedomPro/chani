@@ -301,8 +301,8 @@ section {
 }
 
 .hero__logos .utility-logo {
-  width: 190px;
-  height: 100px;
+  width: 180px;
+  height:120px;
   object-fit: contain;
   background: #ffffff;
   padding: 10px;
@@ -313,9 +313,21 @@ section {
 
 @media (max-width: 480px) {
   .hero__logos .utility-logo {
-    width: 126px;
-    height: 86px;
+    width: 116px;
+    height: 76px;
     padding: 8px;
     border-radius: 10px;
   }
+}
+#more-links {
+  text-align: center;
+}
+
+#more-links .section-title,
+#more-links .section-kicker {
+  text-align: center;
+}
+
+#more-links .link-chips {
+  justify-content: center;
 }
