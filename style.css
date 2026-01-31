@@ -347,3 +347,10 @@ section {
 #more-links .link-chips {
   justify-content: center;
 }
+.section-subtitle{
+  margin-top: 6px;
+  margin-bottom: 14px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #4b5f58;
+}
