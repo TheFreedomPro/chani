@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const solarInput        = document.getElementById('solarPayment');
   const yearsRange        = document.getElementById('yearsRange');
   const yearsDisplay      = document.getElementById('yearsDisplay');
-  const utilityEscInput   = document.getElementById('utilityEsc');  // fixed 9%
+  const utilityEscInput   = document.getElementById('utilityEsc');
   const solarEscSelect    = document.getElementById('solarEsc');
 
   // Totals
@@ -21,6 +21,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const selAnnualSavingsEl   = document.getElementById('selAnnualSavings');
 
   const runBtn = document.getElementById('runBtn');
+
+  function addUtilityRateNote() {
+    if (!runBtn || document.getElementById('utilityRateNote')) return;
+    const note = document.createElement('p');
+    note.id = 'utilityRateNote';
+    note.textContent = 'Electric power cost projections are based on the national average annual increase in electricity rates. Your actual savings may differ if your utility raises rates more or less than average, or if your usage, plan, or final system design changes.';
+    note.style.cssText = 'grid-column:1/-1;margin:8px 0 0;font-size:12.5px;line-height:1.45;color:rgba(20,58,51,.72);font-weight:600;';
+    const actions = runBtn.closest('.actions') || runBtn.parentElement;
+    if (actions) actions.insertAdjacentElement('afterend', note);
+  }
 
   // Helpers
   const fmtMoney = n =>
@@ -52,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const solar  = parseFloat(solarInput.value) || 0;
     const years  = Math.max(1, Math.min(30, parseInt(yearsRange.value || '25', 10)));
 
-    const utilEsc = parseFloat(utilityEscInput.value || '0.09') || 0.09; // fixed 9%
+    const utilEsc = parseFloat(utilityEscInput.value || '0.09') || 0.09;
     const solEsc = Number(solarEscSelect.value);
 
     // Totals
@@ -78,6 +88,8 @@ document.addEventListener('DOMContentLoaded', () => {
     selMonthlySavingsEl.textContent = fmtMoney(mS);
     selAnnualSavingsEl.textContent  = fmtMoney(aS);
   }
+
+  addUtilityRateNote();
 
   // Live interactions
   [billInput, solarInput].forEach(el => el.addEventListener('input', recalc));
